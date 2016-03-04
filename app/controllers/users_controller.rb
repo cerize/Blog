@@ -62,6 +62,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def favourite_posts
+    @favourites = current_user.favourite_posts
+    render :favourites
+  end
+
   private
 
   def user_params

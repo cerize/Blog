@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+    resources :favourites, only: [:create, :destroy]
   end
 
   resources :users
+  get '/users/:id/favourites' => 'users#favourite_posts', as: :favourites
 
   get '/users/:id/edit-password' => 'users#edit_password', as: :edit_password
   patch '/users/:id/edit-password' => 'users#update_password'

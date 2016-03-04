@@ -28,6 +28,7 @@ class PostsController < ApplicationController
       @comment = Comment.new
       @post = find_post
       @comments = @post.comments.order("created_at DESC")
+      @favourite = @post.favourite_by(current_user)
     end
 
     def editmments

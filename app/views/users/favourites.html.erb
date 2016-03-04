@@ -1,0 +1,4 @@
+<% @favourites.each do |fav|  %>
+  <%= link_to fav.title, post_path(fav) %>
+  <br>
+<% end %>

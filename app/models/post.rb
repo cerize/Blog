@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :comments, dependent: :destroy
+  has_many :favourites, dependent: :destroy
+  has_many :users, through: :favourites
 
   validates :title, presence: true,
   uniqueness: { case_sensitive: false }
@@ -12,5 +14,9 @@ class Post < ActiveRecord::Base
   def self.search(q)
     wildcard_term = "%#{q}%"
     where("title ILIKE ? OR body ILIKE ?", wildcard_term, wildcard_term)
+  end
+
+  def favourite_by(user)
+    favourites.find_by_user_id(user)
   end
 end

@@ -23,6 +23,7 @@
 <% if user_signed_in? %>
   Hello <%= link_to current_user.first_name, user_path(current_user) %>
   <%= link_to "Log Out", sessions_path, method: :delete %>
+  <%= link_to "Favourite Posts", favourites_path(current_user) %>
 <% else %>
   <%= link_to "Sign in", new_session_path %>
 <% end %>

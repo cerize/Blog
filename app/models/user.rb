@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :nullify
   has_many :comments, dependent: :destroy
+  has_many :favourites, dependent: :nullify
+  has_many :favourite_posts, through: :favourites, source: :post
 
   validates :password, length: {minimum: 6}, on: :create
   validates :first_name, presence: true
