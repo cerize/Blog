@@ -1,0 +1,11 @@
+<h1>show all posts</h1>
+
+<%  @posts.each do |p|%>
+  <div>
+    <%= link_to p.title, post_path(p) %>
+    <br>
+    <%= image_tag p.image.url(:thumb) %>
+  </div>
+<% end %>
+
+<%= paginate @posts %>

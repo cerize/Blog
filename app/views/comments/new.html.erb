@@ -1,0 +1,14 @@
+<%= @comment.errors.full_messages.join(", ") %>
+<h1>Create a new comment</h1>
+
+<%= form_for @comment do |f| %>
+
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

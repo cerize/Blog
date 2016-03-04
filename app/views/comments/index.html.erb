@@ -1,0 +1,8 @@
+<h1>show all comments</h1>
+
+<%  @comments.each do |p|%>
+  <div>
+    <%= link_to p.body, comment_path(p) %>
+    <br>
+  </div>
+<% end %>

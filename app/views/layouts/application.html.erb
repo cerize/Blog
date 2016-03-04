@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= link_to "About", about_path %> |
+<%= link_to "Home", home_path %> |
+<% if can? :manage, :all %>
+  <%= link_to  "New Post", new_post_path%> |
+<% end %>
+<%= link_to  "All Post", posts_path%>
+
+
+
+<br>
+
+
+<% if user_signed_in? %>
+  Hello <%= link_to current_user.first_name, user_path(current_user) %>
+  <%= link_to "Log Out", sessions_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign in", new_session_path %>
+<% end %>
+
+
+<%= form_tag posts_search_path, method: :get do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Search.." %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class=”notice”>
+     <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class=”alert”>
+     <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

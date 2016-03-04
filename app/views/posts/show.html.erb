@@ -1,0 +1,67 @@
+
+
+<div class="post_title">
+  <%= @post.title %>
+</div>
+
+<div>
+  Category:
+  <%= @post.category.title if @post.category %>
+</div>
+
+<div class="post_author">
+  By: <%= @post.user.full_name %>
+</div>
+
+<%= image_tag @post.image.url(:large) %>
+
+<div class="post_body">
+  <%= @post.body %>
+</div>
+
+
+
+
+<%= link_to "Edit", edit_post_path(@post) %>
+<%= link_to "Delete",
+            post_path(@post),
+            method: :delete,
+            data: {confirm: "Are you sure you want to delete this post?"} %>
+
+<%= @comment.errors.full_messages.join(", ") %>
+
+<h1>Create a new comment</h1>
+
+<%= form_for [@post, @comment] do |f| %>
+
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<% @comments.each do |c| %>
+  <div class="comment-body">
+    <%= c.body %>
+  </div>
+  <div class="comment-author">
+    By: <%= c.user.full_name %>
+  </div>
+  <div class="">
+    Created: <%= c.created_at.strftime("%F - %T") %>
+  </div>
+  <% if c.created_at != c.updated_at %>
+  <div class="">
+    Edited on: <%= c.updated_at.strftime("%F - %T") %>
+  </div>
+  <% end %>
+  <%= link_to "Delete", post_comment_path(@post, c),
+                        method: :delete,
+                        data: {confirm: "Delete comment?"}%>
+  <%= link_to "Edit", edit_post_comment_path(@post, c) %>
+  <hr>
+<% end %>

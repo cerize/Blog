@@ -1,0 +1,11 @@
+
+
+<div class="comment_body">
+  <%= @comment.body %>
+</div>
+
+<%= link_to "Edit", edit_comment_path(@comment) %>
+<%= link_to "Delete",
+            comment_path(@comment),
+            method: :delete,
+            data: {confirm: "Are you sure you want to delete this post?"} %>
