@@ -1,0 +1,5 @@
+<% if favourite && favourite.persisted? %>
+<%= link_to fa_icon("heart"), post_favourite_path(post, favourite), method: :delete, remote: true %>
+<% else %>
+  <%= link_to fa_icon("heart-o"), post_favourites_path(post), method: :post, remote: true %>
+<% end %>
