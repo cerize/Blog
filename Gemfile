@@ -30,6 +30,8 @@ gem 'cancancan'
 
 gem "font-awesome-rails"
 
+gem 'pry-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
