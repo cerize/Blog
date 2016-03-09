@@ -1,0 +1,26 @@
+
+<div id="<%= dom_id(comment)%>">
+  <div class="comment-body">
+    <%= comment.body %>
+  </div>
+  <div class="comment-author">
+    By: <%= comment.user.full_name %>
+  </div>
+  <div class="">
+    Created: <%= comment.created_at.strftime("%F - %T") %>
+  </div>
+  <% if comment.created_at != comment.updated_at %>
+  <div class="">
+    Edited on: <%= comment.updated_at.strftime("%F - %T") %>
+  </div>
+  <% end %>
+  <%= link_to "Delete", post_comment_path(@post, comment),
+                        method: :delete,
+                        remote: true,
+                        data: {confirm: "Delete comment?"}%>
+  <div class="edit-comment">
+    <%= link_to "Edit", edit_post_comment_path(@post, comment),
+                        remote: true %>
+  </div>
+  <hr>
+</div>

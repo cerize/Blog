@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: [:edit, :update, :destroy]
 
+  before_action :find_post, only: [:create, :edit, :update, :destroy]
+
   before_action :authenticate_user
 
   before_action :authorize_user, only: [:edit, :update, :destroy]
@@ -8,41 +10,48 @@ class CommentsController < ApplicationController
 
 
   def create
-    @post = Post.find params[:post_id]
     @comment = Comment.new comment_params
     @comment.post = @post
     @comment.user = current_user
-    if @comment.save
-      redirect_to post_path(@post), notice: "Comment created!"
-    else
-      flash.notice = "Comment was not created"
-      render post_path(@post)
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to post_path(@post), notice: "Comment created!" }
+        format.js { render :create_success }
+      else
+        #flash.notice = "Comment was not created"
+        format.html { render post_path(@post) }
+        format.js   { render :create_fail }
+      end
+
     end
   end
 
   def edit
-    @post = Post.find params[:post_id]
-    render :edit
+    respond_to do |format|
+      format.html { render :edit }
+      format.js { render }
+    end
   end
 
   def update
-    @post = Post.find params[:post_id]
-    @comment = find_comment
-    if @comment.update comment_params
-      redirect_to post_path(@post)
-    else
-      flash[:notice] = "Changes were not saved"
-      render :edit
+    respond_to do |format|
+      if @comment.update comment_params
+        format.html { redirect_to post_path(@post) }
+        format.js   { render :update_success }
+      else
+        #flash[:notice] = "Changes were not saved"
+        format.html { render :edit }
+        format.js   { render :update_fail }
+      end
     end
   end
 
   def destroy
-    # render json: params
-    @post = params[:post_id]
-    if find_comment.destroy
-      redirect_to post_path(@post)
-    else
-      render nothing:true
+    find_comment.destroy
+    respond_to do |format|
+      format.html { redirect_to post_path(@post) }
+      format.js   { render }
+
     end
   end
 
@@ -54,6 +63,10 @@ end
 
 def find_comment
   @comment = Comment.find params[:id]
+end
+
+def find_post
+  @post = Post.find params[:post_id]
 end
 
 def authorize_user

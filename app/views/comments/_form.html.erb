@@ -1,0 +1,6 @@
+<%= simple_form_for [@post, @comment], remote: true  do |f| %>
+
+    <%= f.input :body, label: false %>
+    <%= f.submit %>
+
+  <% end %>

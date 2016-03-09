@@ -39,40 +39,18 @@
 
 <%= @comment.errors.full_messages.join(", ") %>
 
-<h1>Create a new comment</h1>
+<h2>Comments</h2>
 
-<%= form_for [@post, @comment] do |f| %>
+<div id='comment-form'>
+  <%= render 'comments/form' %>
+</div>
 
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
 
-<% end %>
 
-<% @comments.each do |c| %>
-  <div class="comment-body">
-    <%= c.body %>
-  </div>
-  <div class="comment-author">
-    By: <%= c.user.full_name %>
-  </div>
-  <div class="">
-    Created: <%= c.created_at.strftime("%F - %T") %>
-  </div>
-  <% if c.created_at != c.updated_at %>
-  <div class="">
-    Edited on: <%= c.updated_at.strftime("%F - %T") %>
-  </div>
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment %>
   <% end %>
-  <%= link_to "Delete", post_comment_path(@post, c),
-                        method: :delete,
-                        data: {confirm: "Delete comment?"}%>
-  <%= link_to "Edit", edit_post_comment_path(@post, c) %>
-  <hr>
-<% end %>
+</div>
 
 <!-- end of comments -->
