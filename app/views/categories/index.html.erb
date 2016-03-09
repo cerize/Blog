@@ -1,0 +1,13 @@
+
+<div class="categories">
+  <% @categories.each do |category| %>
+  <%= render 'category', category: category %>
+  <% end %>
+</div>
+
+
+<h2>Add new category</h2>
+<%= @category.errors.full_messages.join(", ") %>
+<div class="container" id="category-form">
+  <%= render 'form' %>
+</div>

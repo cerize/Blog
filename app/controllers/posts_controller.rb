@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       @favourite = @post.favourite_by(current_user)
     end
 
-    def editmments
+    def edit
       find_post
       render :edit
     end

@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -12,6 +13,7 @@
 <%= link_to "Home", home_path %> |
 <% if can? :manage, :all %>
   <%= link_to  "New Post", new_post_path%> |
+  <%= link_to "Categories", categories_path	 %>
 <% end %>
 <%= link_to  "All Post", posts_path%>
 

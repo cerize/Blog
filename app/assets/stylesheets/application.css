@@ -1,71 +1,65 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require font-awesome
- */
- body {
-   font-family: 'Ubuntu', sans-serif;
-   /*<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>*/
-   font-size: 18px;
-   color: #66595C;
-   line-height: 1.8em;
- }
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require font-awesome
+*/
+body {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 16px;
+  color: #66595C;
+  line-height: 1.8em;
+}
 
- div {
+div {
 
- }
+}
 
- h1 {
-   color: #be152d;
-   text-align: center;
+h1 {
+  color: #323736;
+  text-align: center;
 
- }
+}
 
- h2 {
-
-
- }
-
- h3 {
+h2 {
 
 
- }
+}
 
- h4 {
-
- }
-
- .btn {
- color: #b6b6b6;
- font-size: 16px;
- background-color: #be152d;
- border-radius: 40px;
- border: none;
- padding:20px;
- }
-
- .btn:hover {
-   background-color: #0e8069;
- }
-
- .header {
+h3 {
 
 
- }
+}
 
- #outter {
-   padding: 20px;
- }
+h4 {
 
- #inner {
+}
+
+.btn {
+
+}
+
+.btn:hover {
+
+}
+
+.header {
+
+
+}
+
+#outter {
+  padding: 20px;
+}
+
+#inner {

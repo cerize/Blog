@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
+  resources :categories
+
   root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

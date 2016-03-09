@@ -1,0 +1,5 @@
+$('.categories').append("<%= j render 'category', category: @category %>");
+
+
+<% @category= Category.new %>
+$("#category-form").html("<%= j render 'form' %>");

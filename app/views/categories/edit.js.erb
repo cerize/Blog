@@ -1,0 +1,7 @@
+
+
+$("#<%= dom_id(@category) %>").find(".category-title").fadeOut(1000);
+$("#<%= dom_id(@category) %>").find(".category-title").remove();
+$("#<%= dom_id(@category) %>").find(".edit-category").fadeOut(1000);
+$("#<%= dom_id(@category) %>").find(".edit-category").remove();
+$("#<%= dom_id(@category) %>").prepend("<%= j render 'form'%>")
