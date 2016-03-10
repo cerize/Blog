@@ -9,32 +9,13 @@
 </head>
 <body>
 
-<%= link_to "About", about_path %> |
-<%= link_to "Home", home_path %> |
-<% if can? :manage, :all %>
-  <%= link_to  "New Post", new_post_path%> |
-  <%= link_to "Categories", categories_path	 %>
-<% end %>
-<%= link_to  "All Post", posts_path%>
+  <!-- header -->
+  <div class="">
+    <%= render 'layouts/navbar' %>
+  </div>
+<!-- end of header -->
 
 
-
-<br>
-
-
-<% if user_signed_in? %>
-  Hello <%= link_to current_user.first_name, user_path(current_user) %>
-  <%= link_to "Log Out", sessions_path, method: :delete %>
-  <%= link_to "Favourite Posts", favourites_path(current_user) %>
-<% else %>
-  <%= link_to "Sign in", new_session_path %>
-<% end %>
-
-
-<%= form_tag posts_search_path, method: :get do %>
-  <%= text_field_tag :q, params[:q], placeholder: "Search.." %>
-  <%= submit_tag "Search" %>
-<% end %>
 
 <% if flash[:notice] %>
   <div class=”notice”>

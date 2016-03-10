@@ -3,6 +3,7 @@ class FavouritesController < ApplicationController
 
   def create
     @post = Post.find params[:post_id]
+    if user_signed_in?
     @favourite = Favourite.new(post:@post, user: current_user)
     respond_to do |format|
       if @favourite.save
@@ -13,6 +14,9 @@ class FavouritesController < ApplicationController
         format.js {render :favourite}
       end
     end
+  else
+    redirect_to new_session_path, alert: "Please sign in to favourite this post"
+  end
   end
 
 

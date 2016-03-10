@@ -1,0 +1,96 @@
+$navbar-default-bg: rgba(113,115,123,0.5) ;
+$navbar-default-link-color: #000;
+$landing-img-height:100vh;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.search-box {
+  background-color: rgba(0,0,0,0.5) ;
+  border: none;
+  padding: 4px;
+}
+
+.yield {
+  margin-top: 100px;
+}
+.bgimage {
+  height:$landing-img-height;
+  background: image-url('landing_bg.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar-padding {
+  //padding-bottom: 150px;
+}
+
+.btn-modification {
+  display: block;
+  text-align: right;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 25px;
+  width: 250px;
+  background-color: rgba(0,0,0, 0.9);
+  border: none;
+  padding: 20px;
+  font-size:16px;
+  opacity: 0.8;
+      &:hover {
+        background-color: #840404;
+      }
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 16px;
+  color: #66595C;
+  line-height: 1.8em;
+}
+
+div {
+
+}
+
+h1 {
+  color: #323736;
+  text-align: center;
+
+}
+
+h2 {
+
+
+}
+
+h3 {
+
+
+}
+
+h4 {
+
+}
+
+.btn {
+
+}
+
+.btn:hover {
+
+}
+
+.header {
+
+
+}
+
+#outter {
+  padding: 20px;
+}
+
+#inner {
+}
