@@ -16,17 +16,19 @@ $landing-img-height:100vh;
   }
 }
 .thumb-index {
-  height: 270px;
+  height: 280px;
+  width: 240px;
+  padding-top: 20px;
   //background-color: "grey";
-  line-height: 270px;
+  //line-height: 250px;
   margin-bottom: 30px;
-  background-color: rgba(0, 0, 0, 0.3) ;
+  background-color: rgba(255, 255, 255, 1) ;
 }
 
 .search-box {
   background-color: rgba(0,0,0,0.5) ;
   border: none;
-  padding: 4px;
+  padding: 4px 4px 4px 14px;
   margin-bottom: 5px;
 }
 
@@ -46,7 +48,7 @@ $landing-img-height:100vh;
   background-size: cover;
 }
 .bgimage {
-  background: image-url('natural_paper.png');
+  background: image-url('landing_bg_50.png');
 }
 
 .navbar-padding {
