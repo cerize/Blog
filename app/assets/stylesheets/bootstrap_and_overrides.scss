@@ -1,26 +1,52 @@
-$navbar-default-bg: rgba(113,115,123,0.5) ;
+// $navbar-default-bg: rgba(113,115,123,0.5) ;
+$navbar-default-bg: transparent;
 $navbar-default-link-color: #000;
 $landing-img-height:100vh;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.post-title {
+  color: #000;
+  :link {
+    color: #000;
+  }
+  :visited {
+    color: #000;
+  }
+}
+.thumb-index {
+  height: 270px;
+  //background-color: "grey";
+  line-height: 270px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.3) ;
+}
+
 .search-box {
   background-color: rgba(0,0,0,0.5) ;
   border: none;
   padding: 4px;
+  margin-bottom: 5px;
 }
 
 .yield {
   margin-top: 100px;
 }
-.bgimage {
+
+.yield-black {
+  margin-top: 100px;
+}
+.bgimage-landing {
   height:$landing-img-height;
   background: image-url('landing_bg.png') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+.bgimage {
+  background: image-url('natural_paper.png');
 }
 
 .navbar-padding {
@@ -45,8 +71,8 @@ $landing-img-height:100vh;
 }
 
 body {
-  font-family: 'Oxygen', sans-serif;
-  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
   color: #66595C;
   line-height: 1.8em;
 }

@@ -1,24 +1,11 @@
 <%= @post.errors.full_messages.join(", ") %>
 <h1>Create a new post</h1>
 
-<%= form_for @post do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label "Category:" %>
+<%= simple_form_for @post, html: { class: 'form-inline' } do |f| %>
+    <%= f.input :title, class: "form-control" %>
     <%= f.collection_radio_buttons :category_id, Category.all, :id, :title %>
-  </div>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <div>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-  <div>
+    <%= f.input :body, class: "form-control" %>
+    <%= f.input :image %>
     <%= f.submit %>
   </div>
 

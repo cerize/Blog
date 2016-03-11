@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="bgimage">
 
   <!-- header -->
   <div class="">
@@ -29,7 +29,9 @@
   </div>
 <% end %>
 
-<%= yield %>
+<div class="container yield-black">
+  <%= yield %>
+</div>
 
 </body>
 </html>
