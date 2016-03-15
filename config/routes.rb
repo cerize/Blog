@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/posts/category/:name' => 'posts#category', as: :post_category
+
   get '/home' => 'home#index', as: :home
 
   get '/about' => 'home#about'

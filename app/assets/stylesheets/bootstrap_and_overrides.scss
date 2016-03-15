@@ -6,6 +6,15 @@ $landing-img-height:100vh;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+label {
+  margin-right: 5px;
+
+}
+
+.icons {
+  margin-right: 5px;
+}
+
 .post-title {
   color: #000;
   :link {

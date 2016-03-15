@@ -1,12 +1,14 @@
 
 <div class="categories">
   <% @categories.each do |category| %>
+  <div id="<%= dom_id(category)%>" class="well">
   <%= render 'category', category: category %>
+  </div>
   <% end %>
 </div>
 
 
-<h2>Add new category</h2>
+<h3>Add new category</h3>
 <%= @category.errors.full_messages.join(", ") %>
 <div class="container" id="category-form">
   <%= render 'form' %>

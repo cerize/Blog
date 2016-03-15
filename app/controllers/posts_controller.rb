@@ -59,6 +59,12 @@ class PostsController < ApplicationController
       render :index
     end
 
+    def category
+      category = Category.find_by_title params[:name].capitalize
+      @posts = category.posts.page(params[:page]).per(6)
+      render "posts/index"
+    end
+
   private
 
   def post_params

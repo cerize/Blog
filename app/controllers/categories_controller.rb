@@ -44,6 +44,7 @@ class CategoriesController < ApplicationController
     end
   end
 
+
 private
 
 def find_category

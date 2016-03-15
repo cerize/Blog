@@ -1,10 +1,10 @@
 <%= @post.errors.full_messages.join(", ") %>
 <h1>Create a new post</h1>
 
-<%= simple_form_for @post, html: { class: 'form-inline' } do |f| %>
-    <%= f.input :title, class: "form-control" %>
-    <%= f.collection_radio_buttons :category_id, Category.all, :id, :title %>
-    <%= f.input :body, class: "form-control" %>
+<%= simple_form_for @post do |f| %>
+    <%= f.input :title %>
+    <%= f.collection_radio_buttons :category_id, Category.all, :id, :title, class: "icons radio" %>
+    <%= f.input :body %>
     <%= f.input :image %>
     <%= f.submit %>
   </div>
