@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
                     format: /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}".strip.titleize
   end
 
 end

@@ -4,18 +4,20 @@ class UsersController < ApplicationController
     @user = User.new
     render :new
   end
-
-  def show
-    @user = User.find params[:id]
-    render :show
-  end
-
+  #
+  # def show
+  #   @user = User.find params[:id]
+  #   render :show
+  # end
+  #
   def create
     user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     @user = User.new(user_params)
     if @user.save
-      redirect_to posts_path
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: "Account created!"
     else
+      flash[:alert] = "Account not created! Please make sure all fields in the form were filled"
       render :new
     end
   end
