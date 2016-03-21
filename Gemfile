@@ -53,6 +53,8 @@ gem 'autoprefixer-rails'
 
 gem 'rails_12factor'
 
+gem 'fog'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
