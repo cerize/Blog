@@ -21,7 +21,7 @@
 </div>
 
 
-
+<% if current_user == @post.user %>
 
 <%= link_to "Edit", edit_post_path(@post) %>
 <%= link_to "Delete",
@@ -29,28 +29,42 @@
             method: :delete,
             data: {confirm: "Are you sure you want to delete this post?"} %>
 
-<!-- favorites -->
-<div id="favourite">
-  <%= render "favourites/favourite", post: @post, favourite: @favourite %>
-</div>
-<!-- end of favorites -->
-
-<!-- comments -->
-
-<%= @comment.errors.full_messages.join(", ") %>
-
-<h2>Comments</h2>
-
-<div id='comment-form'>
-  <%= render 'comments/form' %>
-</div>
+<% end %>
 
 
 
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <%= render 'comments/comment', comment: comment %>
+<% if user_signed_in? %>
+
+  <!-- favorites -->
+  <div id="favourite">
+    <%= render "favourites/favourite", post: @post, favourite: @favourite %>
+  </div>
+  <!-- end of favorites -->
+
+  <!-- comments -->
+
+  <%= @comment.errors.full_messages.join(", ") %>
+
+  <h2>Comments</h2>
+
+  <div id='comment-form'>
+    <%= render 'comments/form' %>
+  </div>
+
+
+
+  <div id="comments">
+    <% @comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment %>
+    <% end %>
+  </div>
+
+  <!-- end of comments -->
+  <% else %>
+
+    <div  class="alert alert-warning" >
+      Please Sign in to comment or create a list of favourite posts.
+      <%= link_to "Sign in", new_session_path, class: "btn btn-primary"%>
+    </div>
+
   <% end %>
-</div>
-
-<!-- end of comments -->

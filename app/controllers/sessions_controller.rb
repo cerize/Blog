@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    respond_to do |format|
+      format.html { render :new}
+      format.js   { redirect_to root_path }
+    end
   end
 
   def create

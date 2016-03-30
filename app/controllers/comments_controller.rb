@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
+
+  before_action :authenticate_user
   before_action :find_comment, only: [:edit, :update, :destroy]
 
   before_action :find_post, only: [:create, :edit, :update, :destroy]
-
-  before_action :authenticate_user
 
   before_action :authorize_user, only: [:edit, :update, :destroy]
 

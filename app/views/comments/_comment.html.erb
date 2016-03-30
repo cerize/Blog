@@ -14,13 +14,16 @@
     Edited on: <%= comment.updated_at.strftime("%F - %T") %>
   </div>
   <% end %>
-  <%= link_to "Delete", post_comment_path(@post, comment),
-                        method: :delete,
-                        remote: true,
-                        data: {confirm: "Delete comment?"}%>
-  <div class="edit-comment">
-    <%= link_to "Edit", edit_post_comment_path(@post, comment),
-                        remote: true %>
-  </div>
+
+  <% if current_user == comment.user %>
+    <%= link_to "Delete", post_comment_path(@post, comment),
+                          method: :delete,
+                          remote: true,
+                          data: {confirm: "Delete comment?"}%>
+    <div class="edit-comment">
+      <%= link_to "Edit", edit_post_comment_path(@post, comment),
+                          remote: true %>
+    </div>
+  <% end %>
   <hr>
 </div>

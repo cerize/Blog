@@ -6,6 +6,22 @@ $landing-img-height:100vh;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+
+.bg-dark {
+  background: image-url('tweed.png');
+  width: 815px;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    align-content: center;
+  }
+  p {
+    color: #d3d3d3;
+  }
+}
 label {
   margin-right: 5px;
 
@@ -31,6 +47,7 @@ label {
   //background-color: "grey";
   //line-height: 250px;
   margin-bottom: 30px;
+  //background: image-url('tweed.png');
   background-color: rgba(255, 255, 255, 1) ;
 }
 
@@ -57,7 +74,7 @@ label {
   background-size: cover;
 }
 .bgimage {
-  background: image-url('landing_bg_50.png');
+  background: image-url('natural_paper.png');
 }
 
 .navbar-padding {
