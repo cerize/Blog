@@ -21,4 +21,9 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     redirect_to new_session_path, notice: "Please sign in" unless user_signed_in?
   end
+
+  def categories
+    Category.all
+  end
+  helper_method :categories
 end
