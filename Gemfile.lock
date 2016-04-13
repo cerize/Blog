@@ -197,6 +197,8 @@ GEM
     font-awesome-rails (4.5.0.1)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hirb (0.7.3)
@@ -362,6 +364,7 @@ DEPENDENCIES
   faker
   fog
   font-awesome-rails
+  friendly_id (~> 5.1.0)
   hirb
   interactive_editor
   jbuilder (~> 2.0)

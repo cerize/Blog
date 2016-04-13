@@ -38,6 +38,7 @@ class PostsController < ApplicationController
 
     def update
       @post = find_post
+      @post.slug = nil
       if @post.update post_params
         redirect_to post_path(@post)
       else
@@ -72,7 +73,7 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find params[:id]
+    @post = Post.friendly.find params[:id]
   end
 
   def authorize_user

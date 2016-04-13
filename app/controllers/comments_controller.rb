@@ -66,7 +66,7 @@ def find_comment
 end
 
 def find_post
-  @post = Post.find params[:post_id]
+  @post = Post.friendly.find params[:post_id]
 end
 
 def authorize_user

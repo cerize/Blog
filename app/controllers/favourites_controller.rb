@@ -2,7 +2,7 @@ class FavouritesController < ApplicationController
   before_action :authenticate_user
 
   def create
-    @post = Post.find params[:post_id]
+    @post = Post.friendly.find params[:post_id]
     if user_signed_in?
     @favourite = Favourite.new(post:@post, user: current_user)
     respond_to do |format|
@@ -22,7 +22,7 @@ class FavouritesController < ApplicationController
 
   def destroy
     @favourite = current_user.favourites.find params[:id]
-    @post = Post.find params[:post_id]
+    @post = Post.friendly.find params[:post_id]
     @favourite.destroy
     respond_to do |format|
       format.html {redirect_to post, alert: "Post removed from favs"}
